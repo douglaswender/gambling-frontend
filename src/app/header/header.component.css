@@ -1,0 +1,12 @@
+.color-white{
+  color: white !important;
+}
+
+.navbar-light .navbar-toggler {
+  color: rgba(255,255,255,.5);
+  border-color: rgba(255, 255, 255, 0.5);
+  border-top-color: rgba(255, 255, 255,0.5);
+  border-right-color: rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+  border-left-color: rgba(255, 255, 255, 0.5);
+}

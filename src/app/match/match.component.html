@@ -1,0 +1,43 @@
+<div class="container text-accent">
+  <div class="row justify-content-center">
+    <div class="col-lg-12">
+      <div class="game">
+        <div class="teams">
+          <div class="team">
+            <div class="team1">
+              {{match.time1.name}} <img src={{match.time1.logo}} alt="" height="70vh">
+            </div>
+          </div>
+          <div class="versus">vs</div>
+          <div class="team">
+            <div class="team2"><img src={{match.time2.logo}} height="70vh"> {{match.time2.name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <div class="bet game">
+        <div class="title">
+          Vencedor do jogo
+        </div>
+        <div>
+          <div class="teams">
+            <div class="team bordered" [class.selected]="match.time1 === teamSelected" (click)="selectItem(match.time1)">
+              <div class="">
+                {{match.time1.name}} <img src={{match.time1.logo}} alt="" height="40vh">
+              </div>
+            </div>
+            <div class="team bordered" [class.selected]="match.time2 === teamSelected" (click)="selectItem(match.time2)">
+              <div class=""><img src={{match.time2.logo}} height="40vh"> {{match.time2.name}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <div class="amountHidden bg-accent" [class.showAmountBet]="showBetAmount == true">
+        <span style="color:black">{{teamSelected.name}}</span>
+      </div>
+    </div>
+  </div>
+</div>

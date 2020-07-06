@@ -1,1 +1,72 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  background-color: #870097;
+}
+.bg-primary{
+  background-color:  #870097 !important;
+}
+.bg-secondary{
+  background-color: #63006E !important;
+}
+.bg-accent{
+  background-color: white;
+}
+.text-accent{
+  color: white !important;
+}
+.text-danger{
+  color: #A1102B !important;
+}
+.container-fluid{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.align-text-center {
+  text-align: center;
+}
+
+
+.teams{
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  text-align: center;
+  position: relative;
+}
+
+.teams .team{
+  display: flex;
+  justify-content: center;
+  width: 45%;
+}
+
+.teams .team1{
+  text-align: right;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+}
+
+.team>.team2{
+  text-align: left;
+  justify-content: flex-end;
+}
+
+.teams>.versus{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.4rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+}
+
+.container{
+  padding-top: 0.5rem !important;
+}
+
+.row{
+  margin-top: 0.5rem !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "gambling"
+    }
+  },
+  "defaultProject": "gambling",
+  "cli": {
+    "analytics": "298c9b61-7e2f-422f-8e7c-44c89ac8d7e3"
+  }
 }

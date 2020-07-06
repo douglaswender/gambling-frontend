@@ -1,0 +1,35 @@
+.game{
+  margin-top: 4rem;
+  padding-bottom: 1rem;
+}
+
+.bet{
+  background-color: #63006E;
+}
+
+.title{
+  padding: 10px;
+  justify-content: center;
+  display: flex;
+  font-size: 24px;
+}
+.bet .bordered{
+  padding: 15px;
+  border: 1px solid
+}
+
+.selected{
+  color: black;
+  background-color: white;
+}
+
+.amountHidden{
+  display: none;
+  margin-top: 1rem;
+  height: 20vh;
+  border-radius: 25px;
+}
+
+.showAmountBet{
+  display: flex;
+}
