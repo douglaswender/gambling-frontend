@@ -10,18 +10,22 @@
           </tr>
         </thead>
         <tbody class="text-accent align-text-center">
-          <tr *ngFor="let jogo of game.jogos" [routerLink]="['/match', jogo.id]" >
+          <tr *ngFor="let jogo of game.jogos" [routerLink]="['/match', jogo.id]">
             <th class="text-accent">{{jogo.horario}}</th>
-            <td >
+            <td>
               <div class="teams">
                 <div class="team">
                   <div class="team1">
-                    {{jogo.time1}} <img src={{jogo.logo1}} alt="" height="40vh">
+                    {{jogo.time1.nome}}
+                    <img src={{jogo.time1.logo}} class="logo-img">
                   </div>
                 </div>
                 <div class="versus">vs</div>
                 <div class="team">
-                  <div class="team2"><img src={{jogo.logo2}} height="40vh"> {{jogo.time2}}</div>
+                  <div class="team2">
+                    <img src={{jogo.time2.logo}} class="logo-img">
+                    {{jogo.time2.nome}}
+                  </div>
                 </div>
               </div>
             </td>

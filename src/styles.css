@@ -2,6 +2,12 @@
 body{
   background-color: #870097;
 }
+.btn-primary{
+  background-color:  #870097 !important;
+}
+.btn-primary:hover{
+  background-color:  #63006E !important;
+}
 .bg-primary{
   background-color:  #870097 !important;
 }
@@ -43,7 +49,6 @@ body{
 .teams .team1{
   text-align: right;
   justify-content: flex-start;
-  flex-direction: row-reverse;
 }
 
 .team>.team2{

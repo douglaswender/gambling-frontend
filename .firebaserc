@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gambling-club": {
+      "hosting": {
+        "gambling": [
+          "gambling-club"
+        ]
+      }
+    }
+  }
+}

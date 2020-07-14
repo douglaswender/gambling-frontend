@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ProfileService } from '../profile.service';
 
 @Component({
   selector: 'app-standings',
@@ -9,12 +10,19 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 export class StandingsComponent implements OnInit {
 
   name = '';
+  hall = [];
 
   constructor(
+    private _standingsService: ProfileService,
     private route: ActivatedRoute,
   ) {}
 
   ngOnInit() {
+    //get da api
+    this._standingsService.getStandings().subscribe((data) => {
+      this.hall = data
+      console.log(data);
+    });
     console.log(this.route);
     let id = this.route.snapshot.paramMap.get('id');
     console.log(id);

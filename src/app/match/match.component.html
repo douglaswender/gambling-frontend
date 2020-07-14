@@ -2,15 +2,21 @@
   <div class="row justify-content-center">
     <div class="col-lg-12">
       <div class="game">
+        <div class="title">
+          {{match?.titulo }}
+        </div>
+        <div class="title">
+          {{match?.match.horario}}
+        </div>
         <div class="teams">
           <div class="team">
             <div class="team1">
-              {{match.time1.name}} <img src={{match.time1.logo}} alt="" height="70vh">
+              {{match?.match?.time1?.nome}} <img src={{match?.match?.time1?.logo}} alt="" height="70vh">
             </div>
           </div>
           <div class="versus">vs</div>
           <div class="team">
-            <div class="team2"><img src={{match.time2.logo}} height="70vh"> {{match.time2.name}}</div>
+            <div class="team2"><img src={{match?.match?.time2?.logo}} height="70vh"> {{match?.match?.time2?.nome}}</div>
           </div>
         </div>
       </div>
@@ -22,21 +28,32 @@
         </div>
         <div>
           <div class="teams">
-            <div class="team bordered" [class.selected]="match.time1 === teamSelected" (click)="selectItem(match.time1)">
+            <div class="team bordered" [class.selected]="match?.match?.time1 === teamSelected"
+              (click)="selectItem(match?.match?.time1)">
               <div class="">
-                {{match.time1.name}} <img src={{match.time1.logo}} alt="" height="40vh">
+                {{match?.match?.time1?.name}} <img src={{match?.match?.time1?.logo}} alt="" height="40vh">
               </div>
             </div>
-            <div class="team bordered" [class.selected]="match.time2 === teamSelected" (click)="selectItem(match.time2)">
-              <div class=""><img src={{match.time2.logo}} height="40vh"> {{match.time2.name}}</div>
+            <div class="team bordered" [class.selected]="match?.match?.time2 === teamSelected"
+              (click)="selectItem(match?.match?.time2)">
+              <div class=""><img src={{match?.match?.time2?.logo}} height="40vh"> {{match?.match?.time2?.name}}</div>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="col-lg-12">
-      <div class="amountHidden bg-accent" [class.showAmountBet]="showBetAmount == true">
-        <span style="color:black">{{teamSelected.name}}</span>
+      <div class="row justify-content-center">
+        <div class="amountHidden bg-accent" [class.showAmountBet]="showBetAmount == true">
+          <div class="innerAmount">
+            <form class="form-inline">
+              <label class="mb-2 margin-right" for="inlineFormInputName2">{{teamSelected.nome}} vence a partida </label>
+              <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2"
+                placeholder="Valor em Gamblings">
+              <button type="submit" class="btn btn-primary mb-2" (click)="betGambling()">Apostar</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>

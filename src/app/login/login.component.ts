@@ -1,0 +1,60 @@
+import { Component, OnInit } from '@angular/core';
+import { ProfileService } from '../profile.service';
+import { IProfile } from '../profile';
+import { Router, NavigationEnd } from '@angular/router';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
+})
+export class LoginComponent implements OnInit {
+
+  mySubscription: any;
+  username: string;
+  password: string;
+  profile: IProfile;
+
+  constructor(private _profileService: ProfileService, private router: Router) {
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+    this.mySubscription = this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        // Trick the Router into believing it's last link wasn't previously loaded
+        this.router.navigated = false;
+      }
+    });
+  }
+
+  onChange(option: string, value: any) {
+    if (option === 'username') {
+      this.username = value.target.value;
+      console.log(value.target.value);
+    } else {
+      this.password = value.target.value;
+      console.log(value.target.value);
+    }
+  }
+
+  login() {
+    this._profileService
+      .login(this.username, this.password)
+      .subscribe((data) => {
+        console.log(data);
+        if (data.auth == true) {
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('username', data.username);
+          this.router.navigate(['/games']);
+        }
+      });
+  }
+
+  ngOnInit(): void {}
+
+  ngOnDestroy() {
+    if (this.mySubscription) {
+      this.mySubscription.unsubscribe();
+    }
+  }
+}
