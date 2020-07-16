@@ -16,9 +16,14 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this._profileService.getProfile(this.nickname).subscribe((data)=>{
-      console.log(data)
+
+      //atualiza header como o username e saldo atualizados;
+      this._profileService.setProfile(localStorage.getItem('username'));
+
       this.profile = data;
-    })
+    });
+
+
   }
 
 }

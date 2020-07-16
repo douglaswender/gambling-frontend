@@ -15,6 +15,7 @@ export class StandingsComponent implements OnInit {
   constructor(
     private _standingsService: ProfileService,
     private route: ActivatedRoute,
+    private _profileService: ProfileService
   ) {}
 
   ngOnInit() {
@@ -23,7 +24,10 @@ export class StandingsComponent implements OnInit {
       this.hall = data
       console.log(data);
     });
-    console.log(this.route);
+
+    //atualiza header como o username e saldo atualizados;
+    this._profileService.setProfile(localStorage.getItem('username'));
+    
     let id = this.route.snapshot.paramMap.get('id');
     console.log(id);
     this.name = id;

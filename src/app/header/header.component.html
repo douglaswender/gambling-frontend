@@ -15,10 +15,13 @@
       <li class="nav-item">
         <a class="nav-link text-accent" routerLink="/standings" routerLinkActive="active" >Classificação</a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item" *ngIf="isLogged == false">
+        <a class="nav-link text-accent" routerLink="/login" routerLinkActive="active">Login</a>
+      </li>
+      <li class="nav-item dropdown" *ngIf="profile !== undefined">
         <a class="nav-link dropdown-toggle text-accent" href="#" id="navbarDropdown" role="button"
           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{nickname}}
+          {{profile?.username}}
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" routerLink="/profile">

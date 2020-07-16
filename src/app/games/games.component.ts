@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GamesService } from '../games.service';
+import { ProfileService } from '../profile.service';
 
 @Component({
   selector: 'app-games',
@@ -9,13 +10,14 @@ import { GamesService } from '../games.service';
 export class GamesComponent implements OnInit {
   public games = [];
 
-  constructor(private _gameService: GamesService) {}
+  constructor(private _gameService: GamesService, private _profileService: ProfileService) {}
 
   ngOnInit(): void {
 
     //get da api
     this._gameService.getGames().subscribe((data) => (this.games = data));
-
+    
+    this._profileService.setProfile(localStorage.getItem('username'));
     //teste quando api estiver pronta é comentar ou excluir.
     // this.games = [
     //   {

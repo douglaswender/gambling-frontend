@@ -41,11 +41,14 @@ export class LoginComponent implements OnInit {
     this._profileService
       .login(this.username, this.password)
       .subscribe((data) => {
+        console.log('data from login')
         console.log(data);
         if (data.auth == true) {
           localStorage.setItem('token', data.token);
           localStorage.setItem('username', data.username);
-          this.router.navigate(['/games']);
+          this.router.navigate(['games']);
+          this._profileService.setProfile(data.username);
+
         }
       });
   }
