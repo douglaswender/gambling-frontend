@@ -27,7 +27,7 @@ export class ProfileService {
     return this.http.post<IProfile>(this._urlProfile, {user: username});
   }
   login(username:string, password: string){
-    return this.http.post<ILogin>(this._urlLogin, {login: username, password: password}, this.httpOptions);
+    return this.http.post<ILogin>(this._urlLogin, {login: username, password: password});
   }
 
   setProfile(profile:string){
