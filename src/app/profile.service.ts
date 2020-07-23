@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { IProfile } from './profile';
 import { ILogin } from './login';
+import { environment } from '../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,9 @@ export class ProfileService {
   private profile:IProfile;
   private return;
 
-  private _urlStandings: string = "http://localhost:5001/gambling-club/us-central1/app/standings/";
-  private _urlProfile: string = "http://localhost:5001/gambling-club/us-central1/app/profile/";
-  private _urlLogin: string = "http://localhost:5001/gambling-club/us-central1/app/login";
+  private _urlStandings: string = environment.baseUrl + "/standings";
+  private _urlProfile: string = environment.baseUrl + "/profile";
+  private _urlLogin: string = environment.baseUrl + "/login";
 
   constructor(private http: HttpClient) { }
 
