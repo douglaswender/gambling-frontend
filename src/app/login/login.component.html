@@ -3,10 +3,11 @@
     <div class="login">
       <h1>Seja bem-vindo ao Gambling!</h1>
       <div class="form">
-        <form method="post">
-          <input (keyup)="onChange('username', $event)" type="text" placeholder="Usuário" required>
-          <input (keyup)="onChange('password', $event)" type="password" name="p" placeholder="Senha" required="required" />
-          <button type="button" class="btn btn-primary btn-block btn-large" (click)="login()">Entrar</button>
+        <form method="post" (submit)="login()">
+          <input [formControl]="username" type="text" placeholder="Usuário" required>
+          <input [formControl]="password" type="password" placeholder="Senha"
+            required="required" />
+          <button type="submit" class="btn btn-primary btn-block btn-large">Entrar</button>
         </form>
       </div>
     </div>

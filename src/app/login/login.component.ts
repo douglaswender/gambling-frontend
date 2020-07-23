@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../profile.service';
 import { IProfile } from '../profile';
 import { Router, NavigationEnd } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +12,8 @@ import { Router, NavigationEnd } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   mySubscription: any;
-  username: string;
-  password: string;
+  username = new FormControl('');
+  password = new FormControl('');
   profile: IProfile;
 
   constructor(private _profileService: ProfileService, private router: Router) {
@@ -27,19 +28,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onChange(option: string, value: any) {
-    if (option === 'username') {
-      this.username = value.target.value;
-      console.log(value.target.value);
-    } else {
-      this.password = value.target.value;
-      console.log(value.target.value);
-    }
-  }
-
   login() {
     this._profileService
-      .login(this.username, this.password)
+      .login(this.username.value, this.password.value)
       .subscribe((data) => {
         console.log('data from login')
         console.log(data);

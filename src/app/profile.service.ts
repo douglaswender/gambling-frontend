@@ -14,9 +14,9 @@ export class ProfileService {
   private profile:IProfile;
   private return;
 
-  private _urlStandings: string = "http://localhost:5001/gambling-club/us-central1/app/standings/";
-  private _urlProfile: string = "http://localhost:5001/gambling-club/us-central1/app/profile/";
-  private _urlLogin: string = "http://localhost:5001/gambling-club/us-central1/app/login";
+  private _urlStandings: string = "https://us-central1-gambling-club.cloudfunctions.net/app/standings/";
+  private _urlProfile: string = "https://us-central1-gambling-club.cloudfunctions.net/app/profile/";
+  private _urlLogin: string = "https://us-central1-gambling-club.cloudfunctions.net/app/login";
 
   constructor(private http: HttpClient) { }
 
