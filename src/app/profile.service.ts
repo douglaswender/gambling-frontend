@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { IProfile } from './profile';
 import { ILogin } from './login';
@@ -12,11 +12,18 @@ export class ProfileService {
   emitirProfile = new EventEmitter<IProfile>();
 
   private profile:IProfile;
-  private return;
 
-  private _urlStandings: string = "http://localhost:5001/gambling-club/us-central1/app/standings/";
-  private _urlProfile: string = "http://localhost:5001/gambling-club/us-central1/app/profile/";
-  private _urlLogin: string = "http://localhost:5001/gambling-club/us-central1/app/login";
+  private httpOptions = {
+    headers:  new HttpHeaders({
+      'Access-Controll-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+    })
+  }
+
+  private _urlStandings: string = "https://us-central1-gambling-club.cloudfunctions.net/app/standings/";
+  private _urlProfile: string = "https://us-central1-gambling-club.cloudfunctions.net/app/profile/";
+  private _urlLogin: string = "https://us-central1-gambling-club.cloudfunctions.net/app/login";
 
   constructor(private http: HttpClient) { }
 
@@ -27,7 +34,7 @@ export class ProfileService {
     return this.http.post<IProfile>(this._urlProfile, {user: username});
   }
   login(username:string, password: string){
-    return this.http.post<ILogin>(this._urlLogin, {login: username, password: password});
+    return this.http.post<ILogin>(this._urlLogin, {login: username, password: password}, this.httpOptions);
   }
 
   setProfile(profile:string){
